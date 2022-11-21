@@ -7,4 +7,16 @@ const getUser = async id => {
   return data;
 };
 
-export { getUser };
+const createUser = async user => {
+  const res = await fetch(urlCRUD, {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'aplication/json',
+    },
+  });
+
+  return await res.json();
+};
+
+export { getUser, createUser };
