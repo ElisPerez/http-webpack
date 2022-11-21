@@ -7,3 +7,10 @@ CRUD.createUser({
   name: 'Elis',
   job: 'Engineer',
 }).then(console.log);
+
+CRUD.updateUser(1, {
+  name: 'Elis Antonio',
+  job: 'Engineer',
+}).then(console.log);
+
+CRUD.deleteUser(2).then(console.log);

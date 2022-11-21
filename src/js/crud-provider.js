@@ -12,11 +12,31 @@ const createUser = async user => {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {
-      'Content-Type': 'aplication/json',
+      'Content-Type': 'application/json',
     },
   });
 
   return await res.json();
 };
 
-export { getUser, createUser };
+const updateUser = async (id, user) => {
+  const res = await fetch(`${urlCRUD}/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return await res.json();
+};
+
+const deleteUser = async id => {
+  const res = await fetch(`${urlCRUD}/${id}`, {
+    method: 'DELETE',
+  });
+
+  return res.ok ? 'Successfully Deleted' : 'Could not delete';
+};
+
+export { getUser, createUser, updateUser, deleteUser };
