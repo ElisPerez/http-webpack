@@ -15,9 +15,21 @@ const jokeUrl = 'https://api.chucknorris.io/jokes/random';
 // });
 
 /* Destructuring the DATA */
-fetch(jokeUrl).then(response => {
-  response.json().then(({ id, value }) => {
-    console.log(id);
-    console.log(value);
+// fetch(jokeUrl).then(response => {
+//   response.json().then(({ id, value }) => {
+//     console.log(id);
+//     console.log(value);
+//   });
+// });
+
+/* Eficiente forma de usar el FETCH */
+// fetch(jokeUrl)
+//   .then(res => res.json())
+//   .then(console.log);
+
+/** Destructuring Data */
+fetch(jokeUrl)
+  .then(res => res.json())
+  .then(({ id, value }) => {
+    console.log({ id, value });
   });
-});
