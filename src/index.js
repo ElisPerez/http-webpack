@@ -1,4 +1,4 @@
 import './css/style.css';
-import { init } from './js/usuarios-page';
+import * as CRUD from './js/crud-provider';
 
-init();
+CRUD.getUser(1).then(console.log);
