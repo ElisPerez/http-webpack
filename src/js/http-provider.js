@@ -5,7 +5,9 @@ const getJoke = async () => {
     const res = await fetch(jokeUrl);
     if (!res.ok) throw 'No se pudo realizar la petición';
 
-    return await res.json();
+    const { icon_url, id, value } = await res.json();
+
+    return { icon_url, id, value };
   } catch (error) {
     throw error;
   }
