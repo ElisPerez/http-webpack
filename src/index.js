@@ -1,4 +1,4 @@
 import './css/style.css';
-import { getJoke } from './js/http-provider';
+import { init } from './js/jokes-page';
 
-getJoke().then(console.log);
+init();
