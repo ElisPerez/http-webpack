@@ -1,7 +1,7 @@
 const jokeUrl = 'https://api.chucknorris.io/jokes/random';
 const urlUsers = 'https://reqres.in/api/users?page=2';
 
-// Cloudinary - Observación: No se están usando Variables de entorno en realidad, reemplazar process.env.NOMBRE_DE_LA_VARIABLE por el string correspondiente proporsionado por Cloudinary. 👀
+// Cloudinary - Observación: No se están usando Variables de entorno en realidad, reemplazar process.env.NOMBRE_DE_LA_VARIABLE por el string correspondiente proporsionado por Cloudinary. 👀 (Guiarse del .env.example)
 const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
 const CLOUDINARY_URL = process.env.CLOUDINARY_URL;
 
