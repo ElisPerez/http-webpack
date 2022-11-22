@@ -29,3 +29,24 @@ Run Development Mode:
 ```bash
 npm start
 ```
+
+# Upload files to Cloudirary:
+
+- link: [https://cloudinary.com/documentation/image_upload_api_reference](https://cloudinary.com/documentation/image_upload_api_reference)
+
+```bash
+var formdata = new FormData();
+formdata.append("upload_preset", "<CLOUDINARY_UPLOAD_PRESET>");
+formdata.append("file", fileInput.files[0], "Elis-Family.jpg");
+
+var requestOptions = {
+  method: 'POST',
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch("https://api.cloudinary.com/v1_1/<CLOUDINARY_CLOUD_NAME>/upload", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+```
