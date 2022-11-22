@@ -17,3 +17,4 @@ import { init } from './js/file-page';
 // CRUD.deleteUser(2).then(console.log);
 
 init();
+// console.log(process.env);

@@ -1,6 +1,10 @@
 const jokeUrl = 'https://api.chucknorris.io/jokes/random';
 const urlUsers = 'https://reqres.in/api/users?page=2';
 
+// Cloudinary
+const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
+const CLOUDINARY_URL = process.env.CLOUDINARY_URL;
+
 const getJoke = async () => {
   try {
     const res = await fetch(jokeUrl);
@@ -16,9 +20,35 @@ const getJoke = async () => {
 
 const getUsers = async () => {
   const resp = await fetch(urlUsers);
-  const { data:users } = await resp.json();
+  const { data: users } = await resp.json();
 
   return users;
 };
 
-export { getJoke, getUsers };
+// fileToUpload: File.
+const uploadImage = async fileToUpload => {
+  const formData = new FormData();
+  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  formData.append('file', fileToUpload);
+
+  try {
+    const res = await fetch(CLOUDINARY_URL, {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (res.ok) {
+      const cloudinaryResponse = await res.json();
+      // console.log(cloudinaryResponse);
+
+      return cloudinaryResponse.secure_url;
+    } else {
+      throw await res.json();
+    }
+  } catch (error) {
+    console.log('An error here', error);
+    throw error;
+  }
+};
+
+export { getJoke, getUsers, uploadImage };

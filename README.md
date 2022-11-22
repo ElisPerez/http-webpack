@@ -32,7 +32,7 @@ npm start
 
 # Upload files to Cloudirary:
 
-- link: [https://cloudinary.com/documentation/image_upload_api_reference](https://cloudinary.com/documentation/image_upload_api_reference)
+- Link: [https://cloudinary.com/documentation/image_upload_api_reference](https://cloudinary.com/documentation/image_upload_api_reference)
 
 ```bash
 var formdata = new FormData();
